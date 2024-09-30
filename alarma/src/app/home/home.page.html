@@ -1,0 +1,35 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Lobster&family=Orbitron&display=swap" rel="stylesheet">
+
+
+<ion-content [fullscreen]="false" class="ion-text-center ion-align-items-center">
+
+  <div>
+    <h1 style="font-weight: bald; font-size: 65px; color: rgb(163, 3, 3);" class="cinzel-regular">Alarma</h1>
+  </div>
+
+  <div>
+    <img src="../../assets/alarma.png" alt="camara" style="width: 50%;">
+  </div>
+
+  <div class="ion-padding" style="padding-top: 8%;">
+    <label for="" style="color: black;" class="cinzel-regular">Correo electrónico</label>
+    <input type="email" class="input cinzel-regular" placeholder="Ingrese su correo..." [(ngModel)]="user">
+  </div>
+
+  <div class="ion-padding" style="padding-top: 1%;">
+    <label for="" style="color: black;" class="cinzel-regular">Contraseña</label><br>
+    <input type="password" class="input cinzel-regular" placeholder="Ingrese su contraseña..." [(ngModel)]="password">  
+  </div>
+
+  <div class="ion-padding" style="padding-top: 7%;">
+    <ion-button id="present-alert" size="large" class="boton cinzel-regular">Acceso rápido</ion-button>
+    <ion-alert trigger="present-alert" class="custom-alert" header="Seleccione usuario:" [buttons]="alertButtons"></ion-alert>  
+  </div>
+
+  <div class="ion-padding">
+    <ion-button size="large" (click)="login()" class="boton alert cinzel-regular">Iniciar Sesión</ion-button>
+  </div>
+  
+</ion-content>

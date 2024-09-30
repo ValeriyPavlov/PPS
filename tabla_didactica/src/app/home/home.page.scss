@@ -1,0 +1,80 @@
+ion-content{
+  --background: url("../../assets/fondo_main.png") 0 0/100% fixed no-repeat;
+}
+
+.input{
+  color: #0f006d;
+}
+
+.poetsen-one-regular {
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.selector{
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #FFD83B;
+  color: black;
+  font-size: 24px;
+  height: 50px;
+  padding-left: 10px;
+}
+
+.boton{
+  --background: #ffc803;
+  --background-hover: #fa7203;
+  --background-activated: #ff65fc;
+  --background-focused: #f7affe;
+  --color: rgb(2, 2, 58);
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+}
+
+.boton:hover{
+  --background: #e86c37;
+}
+
+ion-range::part(tick) {
+  background: #6f59fc;
+}
+
+ion-range::part(tick-active) {
+  background: #6f59fc;
+}
+
+ion-range::part(pin) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #87fdf7;
+  color: #0f006d;
+
+  border-radius: 50%;
+  transform: scale(1.51);
+
+  top: -20px;
+
+  min-width: 28px;
+  height: 28px;
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+ion-range::part(pin)::before {
+  content: none;
+}
+
+ion-range::part(knob) {
+  background: #fc0362;
+}
+
+ion-range::part(bar) {
+  background: #a2d2ff;
+}
+
+ion-range::part(bar-active) {
+  background: #bde0fe;
+}

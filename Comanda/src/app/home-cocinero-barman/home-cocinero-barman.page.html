@@ -1,0 +1,95 @@
+
+<ion-content [fullscreen]="true" class="ion-text-center">
+
+  <ion-toolbar color="danger" style="padding-bottom: 5px;">
+    <ion-title style="padding-right: 40px; font-weight: bold; font-size: 17px;">{{user.usuarioActual?.email}}</ion-title>
+  </ion-toolbar>
+  <ion-fab vertical="top" horizontal="end" [edge]="true" style="margin-top: 30px;">
+    <ion-fab-button (click)="logOut()" color="warning">
+      <ion-icon name="power" size="large"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card>
+    <div *ngIf="user.usuarioActual?.cargo == 'cocinero'">
+      <ion-grid *ngIf="pedidos.length > 0">
+        <ion-row style="font-size: 30px; padding-left: 30px;" size="12">
+          Platos pendientes:
+        </ion-row>
+          <ion-row class="title">
+            <ion-col size="2" style="font-size: 16px; font-weight: bold;">Mesa</ion-col>
+            <ion-col size="4" style="font-size: 16px; font-weight: bold;">Producto</ion-col>
+            <ion-col size="4" style="font-size: 16px; font-weight: bold;">Cant.</ion-col>
+          </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ng-container *ngFor="let pedido of pedidos">
+          <ng-container *ngIf="pedido.state == 'aceptado'">
+            <ion-row *ngFor="let producto of pedido.products">
+              <ion-item *ngIf="producto.type != 'bebida' && producto.ready == false" style="width: 100%;">
+                <ion-col size="2" style="font-size: 20px;">
+                  #{{pedido.tableId}}
+                </ion-col>
+                <ion-col size="5">
+                  {{producto.description}} <br>
+                  <img src="{{producto.img1}}" alt="" style="width: 100px;">
+                </ion-col>
+                <ion-col size="2" style="font-size: 20px;">
+                  {{producto.amount}}u.
+                </ion-col>
+                <ion-col *ngIf="producto.ready==false" size="3">
+                  <button (click)="changeState(pedido, producto)" class="boton">
+                    <ion-icon name="checkmark-circle-outline" size="large"></ion-icon>
+                  </button>
+                </ion-col>
+              </ion-item>
+            </ion-row>
+          </ng-container>
+        </ng-container>
+      </ion-grid>
+    </div>
+
+
+    <div *ngIf="user.usuarioActual?.cargo == 'bartender'">
+      <ion-grid *ngIf="pedidos.length > 0">
+        <ion-row style="font-size: 30px; padding-left: 30px;" size="12">
+          Bebidas pendientes:
+        </ion-row>
+          <ion-row class="title">
+            <ion-col size="2" style="font-size: 16px; font-weight: bold;">Mesa</ion-col>
+            <ion-col size="4" style="font-size: 16px; font-weight: bold;">Producto</ion-col>
+            <ion-col size="4" style="font-size: 16px; font-weight: bold;">Cant.</ion-col>
+          </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ng-container *ngFor="let pedido of pedidos">
+          <ng-container *ngIf="pedido.state == 'aceptado'">
+            <ion-row *ngFor="let producto of pedido.products">
+              <ion-item *ngIf="producto.type == 'bebida' && producto.ready == false" style="width: 100%;">
+                <ion-col size="2" style="font-size: 20px;">
+                  #{{pedido.tableId}}
+                </ion-col>
+                <ion-col size="5">
+                  {{producto.description}} <br>
+                  <img src="{{producto.img1}}" alt="" style="width: 100px;">
+                </ion-col>
+                <ion-col size="2" style="font-size: 20px;">
+                  {{producto.amount}}u.
+                </ion-col>
+                <ion-col *ngIf="producto.ready==false" size="3">
+                  <button (click)="changeState(pedido, producto)" class="boton">
+                    <ion-icon name="checkmark-circle-outline" size="large"></ion-icon>
+                  </button>
+                </ion-col>
+              </ion-item>
+            </ion-row>
+          </ng-container>
+        </ng-container>
+      </ion-grid>
+
+    </div>
+  </ion-card>
+
+</ion-content>

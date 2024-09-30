@@ -1,0 +1,40 @@
+ion-content{
+  --background: url("../../assets/fondo_main.png") 0 0/100% fixed no-repeat;
+}
+
+.input{
+  background-color: rgb(255, 255, 250);
+  color: black;
+}
+
+.selector{
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #FFD83B;
+  color: black;
+  font-size: 24px;
+  height: 50px;
+  padding-left: 10px;
+}
+
+.boton{
+  --background: #93e9be;
+  --background-hover: #056435;
+  --background-activated: #10fa03;
+  --background-focused: #024f28;
+
+  --color: rgb(2, 2, 58);
+
+  --border-radius: 5px;
+  --border-color: #000;
+  --border-style: solid;
+  --border-width: 2px;
+
+  //--box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+
+  --ripple-color: deeppink;
+
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}

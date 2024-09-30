@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-title>Encuestas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <br>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-button (click)="switchCali()">
+        <h2>Calificaciones</h2>
+      </ion-button>
+    </ion-card-header>
+    @if (showCali) {
+    <ion-card-content>
+      <div style="margin-left: 1.0rem;">
+        <echarts [initOpts]="initOptsFeas" [options]="optionsFeas"></echarts>
+      </div>
+    </ion-card-content>
+    }
+  </ion-card>
+  <br>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-button (click)="switchReco()">
+        <h2>Recomendaciones</h2>
+      </ion-button>
+    </ion-card-header>
+    @if (showReco) {
+    <ion-card-content>
+      <div echarts [options]="optionsLindas" [theme]="theme" class="demo-chart" style="margin-right: 0.3rem;"></div>
+    </ion-card-content>
+    }
+  </ion-card>
+  <br>
+
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-button (click)="switchVol()">
+        <h2>Volverian</h2>
+      </ion-button>
+    </ion-card-header>
+    @if (showVol) {
+    <ion-card-content>
+      <div echarts [options]="optionsLinea" [merge]="mergeOptions" class="demo-chart"></div>
+    </ion-card-content>
+    }
+  </ion-card>
+
+  <br>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-button (click)="switchDes()">
+        <h2>Destacados</h2>
+      </ion-button>
+    </ion-card-header>
+    @if (showDes) {
+    <ion-card-content>
+      <div echarts (chartInit)="onChartInit($event)" [options]="options" class="demo-chart"></div>
+    </ion-card-content>
+    }
+  </ion-card>
+
+
+
+
+
+
+
+
+
+</ion-content>

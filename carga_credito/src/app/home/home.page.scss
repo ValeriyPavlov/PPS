@@ -1,0 +1,43 @@
+ion-content{
+  --background: url("../../assets/fondo_main.png") 0 0/100% fixed no-repeat;
+}
+
+.input{
+  background-color: none;
+  border: 1px solid #7b0177;
+  border-radius: 20px;
+  color: #7b0177;
+}
+
+
+
+.boton{
+  height: 150px;
+  width: 150px;
+  --background: #7b0177;
+  --color: white;
+  --border-radius: 50%;
+  --border-color: #000;
+  --border-style: solid;
+  --border-width: 2px;
+}
+.boton:hover{
+  --background: #ffe603;
+  --color: black;
+}
+
+.fob{
+  width: 120px;
+  height: 120px;
+}
+
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 900
+
+.orbitron-font{
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}

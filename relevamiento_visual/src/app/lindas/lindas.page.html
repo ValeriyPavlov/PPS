@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="color: black; padding: 15px; background-color: #93e9be; font-size: 20px;" class="ion-text-center">
+      <button (click)="volver()" style="background-color: #93e9be;"><img src="../../assets/volver.png" alt="" style="background: #93e9be; width: 30px; margin-right: 30px;"></button>
+        {{this.userService.user?.correo}}
+      <button (click)="salir()" style="background-color: #93e9be;"><img src="../../assets/apagar.png" alt="" style="background: #93e9be; width: 30px; margin-left: 30px"></button>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngFor="let foto of fotos" style="background-color: #FFD83B; padding-bottom: 5px; margin-bottom: 15px;">
+    <img src="{{foto.url}}" alt="" style="width: 100%;">
+    <ion-grid style="padding: 0px; margin: 0px;">
+      <ion-row size="auto" class="ion-align-items-center ion-justify-content-between">
+        <ion-col >
+          <label for="" style="font-size: 18px; color: black;">Por: {{foto.user.split("@")[0]}}</label>
+        </ion-col>
+        <ion-col >
+          <label for="" style="font-size: 18px; color: black;">{{getDate(foto.date)}}</label>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-label style="font-size: 30px; color: black;">{{foto.votes.length}}</ion-label>
+          <button (click)="this.vote(foto)" style="background-color: #FFD83B; width: 45px;"><img src="{{getIfLiked(foto)}}" alt="" style="width: 35px; background-color: none;"></button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="start" style="margin-bottom: 20px; margin-left: 20px;">
+    <ion-fab-button (click)="irGraficos()">
+      <img src="../../assets/estadisticas.png" alt="" style="width: 90%;">
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" style="margin-bottom: 20px; margin-right: 20px;">
+    <ion-fab-button (click)="sacarFoto()">
+      <img src="../../assets/foto.png" alt="" style="width: 90%;">
+    </ion-fab-button>
+  </ion-fab>
+  <div style="margin-bottom: 100px;"></div>
+</ion-content>

@@ -1,0 +1,130 @@
+<ion-content [fullscreen]="true" class="text-center">
+  <ion-card color="light" class="ion-text-center">
+    <div class="login">
+      <ion-card-content style="padding-bottom: 0px; margin-bottom: 0px;">
+        <ion-list>
+          <h2 style="font-size:large; font-weight: bold;">Califíquenos</h2>
+          @switch (calificacion) {
+          @case (0) {
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          }
+          @case (1) {
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          }
+          @case (2) {
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          }
+          @case (3) {
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          }
+          @case (4) {
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/nostar.png" style="width: 60px;" alt="ns">
+          }
+          @case (5) {
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          <img src="assets/star.png" style="width: 60px;" alt="s">
+          }
+          }
+          <ion-row class="ion-justify-content-around">
+            <ion-col size="8">
+              <ion-range aria-label="Range with ticks" [ticks]="true" [snaps]="true" [min]="0" [max]="5" [(ngModel)]='calificacion' (ionChange)="calificacionChange($event)"></ion-range>
+            </ion-col>
+          </ion-row>
+          <br>
+          <h2 style="font-size:large; font-weight: bold;">¿Volvería a comer con nosotros?</h2>
+          <ion-radio-group (ionChange)="volveriaChange($event)">
+            <ion-row class="ion-justify-content-around">
+              <ion-col size="5">
+                <ion-radio value="si" style="font-size: 20px;">Si</ion-radio>
+              </ion-col>
+              <ion-col size="3">
+                <ion-radio value="no" style="font-size: 20px;">No</ion-radio>
+              </ion-col>
+              <br />
+            </ion-row>
+          </ion-radio-group>
+          <br>
+          <h2 style="font-size:large; font-weight: bold;">Destacados</h2>
+
+          <ion-row class="ion-justify-content-around">
+            <ion-col size="3">
+              <ion-checkbox label-placement="stacked" alignment="center" value="comidas" (ionChange)="destacadoChange($event)">Comidas</ion-checkbox>
+            </ion-col>
+            <ion-col size="3">
+              <ion-checkbox label-placement="stacked" alignment="center" value="bebidas" (ionChange)="destacadoChange($event)">Bebidas</ion-checkbox>
+            </ion-col>
+            <ion-col size="3">
+              <ion-checkbox label-placement="stacked" alignment="center" value="ambiente" (ionChange)="destacadoChange($event)">Ambiente</ion-checkbox>
+            </ion-col>
+            <ion-col size="3">
+              <ion-checkbox label-placement="stacked" alignment="center" value="servicio" (ionChange)="destacadoChange($event)">Servicio</ion-checkbox>
+            </ion-col>
+          </ion-row>
+          <br>
+          <ion-row class="ion-justify-content-around">
+            <ion-col size="6">
+              <h2>¿Nos recomendaría con algún familiar/amigo?</h2>
+            </ion-col>
+            <ion-col size="6">
+              <ion-select aria-label="opciones" interface="popover" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Opciones" (ionChange)="recomendacionChange($event)">
+                <ion-select-option value="poco probable">Poco Probable</ion-select-option>
+                <ion-select-option value="probable">Probable</ion-select-option>
+                <ion-select-option value="muy probable">Muy Probable</ion-select-option>
+              </ion-select>
+            </ion-col>
+            <br/>
+          </ion-row>
+
+          <br>
+          <ion-row class="ion-justify-content-around">
+            <ion-col size="12">
+              <ion-input [(ngModel)]='comentario' placeholder="Ingrese su comentario..."></ion-input>
+            </ion-col>
+            <br/>
+          </ion-row>
+
+          <div class="col-md-6 mb-3">
+            <ion-button [ngClass]="fotos.length < 3 ? 'boton': 'disable'" type="button" (click)="takePicture()"><ion-icon size="large" style="background-color: none;" name="camera"></ion-icon></ion-button>
+          </div>
+        </ion-list>
+
+      </ion-card-content>
+
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="11">
+            <ion-button type="submit" color="primary" size="large" expand="block" style="height: 70px;" (click)="crearEncuesta()">
+              <div>
+                <img src="assets/icono_sin_fondo.png" style="width: 65px;" alt="logo">
+              </div>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
+
+</ion-content>

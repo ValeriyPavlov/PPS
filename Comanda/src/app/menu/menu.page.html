@@ -1,0 +1,105 @@
+<ion-toolbar color="danger" style="padding-bottom: 5px;" class="ion-text-center">
+  <ion-title>Nuestra Carta</ion-title>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true" class="ion-text-center">
+
+  <div class="card" style="text-align: center;">
+    <h1>Bebidas:</h1>
+    <div *ngFor="let item of bebidas">
+      <button (click)="agregarAlPedido(item)" class="boton" [ngClass]="{botonActivo: pedido.products.includes(item), botonInactivo: !pedido.products.includes(item)}">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">{{item.description}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4"><img src="{{item.img1}}" alt="" ></ion-col>
+          <ion-col size="4"><img src="{{item.img2}}" alt="" ></ion-col>
+          <ion-col size="4"><img src="{{item.img3}}" alt="" ></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="6">Tiempo: <br>{{item.prodTime}} min.</ion-col>
+            <ion-col size="6">Precio: <br>${{item.price}}</ion-col>
+        </ion-row>
+      </ion-grid>
+      </button>
+    </div>
+
+      
+  </div>
+
+  <div class="card" style="text-align: center;">
+    <h1>Platos principales:</h1>
+    <div *ngFor="let item of comidas">
+      <button (click)="agregarAlPedido(item)" class="boton" [ngClass]="{botonActivo: pedido.products.includes(item), botonInactivo: !pedido.products.includes(item)}">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">{{item.description}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4"><img src="{{item.img1}}" alt="" ></ion-col>
+          <ion-col size="4"><img src="{{item.img2}}" alt="" ></ion-col>
+          <ion-col size="4"><img src="{{item.img3}}" alt="" ></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="6">Tiempo: <br>{{item.prodTime}} min.</ion-col>
+            <ion-col size="6">Precio: <br>${{item.price}}</ion-col>
+        </ion-row>
+      </ion-grid>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="card" style="text-align: center;">
+    <h1>Postres:</h1>
+    <div *ngFor="let item of postres">
+      <button (click)="agregarAlPedido(item)" class="boton" [ngClass]="{botonActivo: pedido.products.includes(item), botonInactivo: !pedido.products.includes(item)}">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">{{item.description}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4"><img src="{{item.img1}}" alt="" ></ion-col>
+          <ion-col size="4"><img src="{{item.img2}}" alt="" ></ion-col>
+          <ion-col size="4"><img src="{{item.img3}}" alt="" ></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="6">Tiempo: <br>{{item.prodTime}} min.</ion-col>
+            <ion-col size="6">Precio: <br>${{item.price}}</ion-col>
+        </ion-row>
+      </ion-grid>
+      </button>
+    </div>
+  </div>
+
+  <div class="card" style="text-align: center;" *ngIf="pedido.products.length > 0">
+    <h1>Su Pedido:</h1>
+    <div *ngFor="let item of pedido.products">
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="6" style="font-size: 18px;" class="ion-text-start">{{item.description}}</ion-col>
+          <ion-col size="3" style="font-size: 18px;" class="ion-text-start">${{item.price}}</ion-col>
+          <ion-col size="3"><ion-input type="number" shape="round" [min]="1" [max]="100" errorText="Cantidad no válida" [(ngModel)]="item.amount"></ion-input></ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          Tiempo estimado: {{getMaxTime()}} min.
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" style="font-size: 30px; font-weight: bolder;">
+          TOTAL: $ {{getTotal()}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <button class="boton2" (click)="setOrder()">Pedir</button>
+  </div>
+  
+
+  <ion-loading trigger="mode" message="Cargando..." [duration]="2000" spinner="circles"></ion-loading>
+
+</ion-content>

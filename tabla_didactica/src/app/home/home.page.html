@@ -1,0 +1,31 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+
+
+<ion-content [fullscreen]="false" class="ion-text-center ion-align-items-center">
+
+  <div>
+    <img src="../../assets/juego.png" alt="camara" style="width: 50%; padding-top: 8%;">
+  </div>
+  <label for="Tabla Didáctica" style="color:#0f006d; font-size: 42px;" class="poetsen-one-regular">Tabla Didáctica</label>
+
+  <div class="ion-padding" style="padding-top: 14%;">
+    <ion-input label="Correo electrónico" style="font-size: 20px;" errorText="Correo electrónico no valido" ngModel email label-placement="floating" fill="outline" type="email" name="correo" id="correo" class="input poetsen-one-regular" [(ngModel)]="user"></ion-input>
+  </div>
+
+  <div class="ion-padding">
+    <ion-input label="Contraseña" [minlength]="3" errorText="Contraseña muy corta..." style="font-size: 20px;" label-placement="floating" fill="outline" type="password" name="clave" id="clave" class="input poetsen-one-regular" [(ngModel)]="password"></ion-input>
+  </div>
+
+  <div class="ion-padding" style="padding-top: 8%; padding-left: 5%; padding-right: 5%;">
+    <label class="poetsen-one-regular" style="color: #0f006d; font-size: 24px;">Acceso rápido</label>
+    <ion-range aria-label="Custom range" [min]="1" [max]="5" [ticks]="true" [snaps]="true" (ionKnobMoveEnd)="autoLogin($event)"></ion-range>
+  </div>
+
+  <div style="padding-top: 4%;">
+    <ion-button shape="round" size="large" (click)="login()" class="boton poetsen-one-regular"><ion-icon slot="start" name="star"></ion-icon>Iniciar Sesión<ion-icon slot="end" name="star"></ion-icon></ion-button>
+  </div>
+
+  
+</ion-content>

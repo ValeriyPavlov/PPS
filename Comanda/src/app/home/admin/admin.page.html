@@ -1,0 +1,56 @@
+<ion-content [fullscreen]="true" class="ion-text-center">
+
+  <ion-toolbar color="danger" style="padding-bottom: 5px;">
+    <ion-title style="padding-right: 40px; font-weight: bold; font-size: 17px;">Verificación de Clientes</ion-title>
+  </ion-toolbar>
+  <ion-fab vertical="top" horizontal="end" [edge]="true" style="margin-top: 30px;">
+    <ion-fab-button (click)="logOut()" color="warning">
+      <ion-icon name="power" size="large"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card>
+    <h1>Lista de Solicitudes Clientes:</h1>
+
+    @if (userClients.length > 0) {
+    <ion-grid>
+      <ion-row class="titles">
+        <ion-col size="2" style="font-weight: bold;">Foto</ion-col>
+        <ion-col size="5" style="font-weight: bold;">Nombre</ion-col>
+        <ion-col size="5" style="font-weight: bold;">DNI</ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let item of userClients; let i = index" [attr.data-index]="i"
+        class="ion-align-items-center data-row" [ngClass]="i%2==0? 'par': 'impar'">
+        <ion-col size="2" class="data-col">
+          <img src="{{item.foto}}" alt="foto{{item.dni}}">
+        </ion-col>
+        <ion-col size="5" class="data-col">
+          {{item.nombre}} {{item.apellido}}
+        </ion-col>
+        <ion-col size="5" class="data-col">
+          {{item.dni}}
+        </ion-col>
+        <ion-col size="6">
+          <ion-button color="success" expand="full" (click)="accept(item)" id="mode">
+            <ion-icon name="checkmark-circle-outline" size="large"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button color="danger" expand="full" (click)="reject(item)" id="mode">
+            <ion-icon name="close-circle-outline" size="large"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    }@else {
+    <br>
+    <br>
+    <br>
+    <h2 class="ion-italic" color="danger">No hay clientes pendientes</h2>
+    <br>
+    <ion-icon name="ban" size="large" color="danger"></ion-icon>
+    }
+  </ion-card>
+  <ion-loading trigger="mode" message="Cargando..." [duration]="3000" spinner="circles"></ion-loading>
+</ion-content>

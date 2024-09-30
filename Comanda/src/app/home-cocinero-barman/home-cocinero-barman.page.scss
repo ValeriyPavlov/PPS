@@ -1,0 +1,30 @@
+ion-card{
+    --background: rgba(245, 245, 220, 0.75);
+    min-height: 85%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.boton{
+    font-size: 18px;
+    padding: 10px;
+    margin-left: 10px;
+    background-color: var(--ion-color-success-tint);
+    border-radius: 15px;
+    border: 2px solid rgb(5, 5, 5);
+}
+
+ion-item{
+    --background: rgb(188, 247, 242);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.title{
+    
+    background-color: rgb(69, 141, 255);
+}

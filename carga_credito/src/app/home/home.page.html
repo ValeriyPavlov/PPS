@@ -1,0 +1,44 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+
+<ion-content [fullscreen]="false" class="ion-text-center ion-align-items-center">
+
+  <div style="padding-top: 5%;">
+    <h1 style="color:black; font-weight: bolder; color: #7b0177" class="orbitron-font">Carga de Crédito</h1>
+  </div>
+  <div>
+    <img src="../../assets/qr.png" alt="camara" style="width: 50%; padding-top: 4%;">
+  </div>
+
+  <div class="ion-padding" style="padding-top: 10%;">
+    <ion-input label=" Usuario: " type="email" class="input orbitron-font" [(ngModel)]="user"></ion-input>
+  </div>
+
+  <div class="ion-padding">
+    <ion-input label="Contraseña: " type="password" value="password" class="input orbitron-font" [(ngModel)]="password"></ion-input>
+  </div>
+
+  <div class="ion-padding" style="padding-top: 10%;">
+    <ion-button size="large" (click)="login()" class="boton orbitron-font">Iniciar Sesión</ion-button>
+  </div>
+
+  <div class="ion-padding" style="padding-top: 7%;">
+
+      <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+        <ion-fab-button color="warning" >
+          <ion-icon name="chevron-up-circle"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+          <ion-fab-button color="warning" style="width: 60px;" (click)="autoLogin('tester@tester.com')">tester</ion-fab-button>
+          <ion-fab-button color="warning" style="width: 60px;" (click)="autoLogin('anonimo@anonimo.com')">anonimo</ion-fab-button>
+          <ion-fab-button color="warning" style="width: 60px;" (click)="autoLogin('usuario@usuario.com')">usuario</ion-fab-button>
+          <ion-fab-button color="warning" style="width: 60px;" (click)="autoLogin('invitado@invitado.com')">invitado</ion-fab-button>
+          <ion-fab-button color="warning" style="width: 60px;" (click)="autoLogin('admin@admin.com')">admin</ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+
+  </div>
+  
+</ion-content>

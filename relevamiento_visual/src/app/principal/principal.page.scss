@@ -1,0 +1,51 @@
+ion-content{
+    --background: rgb(220, 220, 196);
+}
+
+
+.boton{
+    width: 90%; 
+    height: 45%;
+    border-radius: 20px;
+    border: 3px solid black;
+    margin-top: 10px;
+    background: #93e9be;
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.boton2{
+    width: 90%; 
+    height: 45%;
+    border-radius: 20px;
+    border: 3px solid black;
+    margin-top: 10px;
+    background: #e8aa9e;
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.boton:hover{
+    background: #36cb81;
+}
+
+.boton2:hover{
+    background: #e37f6a;
+}
+
+.botonVolver{
+    margin-top: 10px;
+    height: 30px; 
+    width: 100px;
+    color: black;
+    background-color: #FFD83B;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+.botonVolver:hover{
+    background-color: #d8ae03;
+}

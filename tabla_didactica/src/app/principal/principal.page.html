@@ -1,0 +1,84 @@
+
+<ion-content [fullscreen]="true" class="ion-text-center">
+
+  <ion-grid class="ion-text-center">
+    <ion-row style="height: 33.33vh;">
+      <!-- <ion-col style="background-color: #F6B7DA;"> -->
+      <button (click)="reproducir('1')" style="background-color: #F6B7DA; width: 33.33vw;">
+        <img src="{{img1}}" alt="">
+      </button>
+      <!-- </ion-col> -->
+      <button (click)="reproducir('2')" style="background-color: #F6BA90; width: 33.33vw;">
+        <img src="{{img2}}" alt="">
+      </button>
+      <button (click)="reproducir('3')" style="background-color: #F6B7DA; width: 33.33vw;">
+        <img src="{{img3}}" alt="">
+      </button>
+    </ion-row>
+    <ion-row style="height: 33.33vh;">
+      <button (click)="reproducir('4')" style="background-color: #F6BA90; width: 33.33vw;">
+        <img src="{{img4}}" alt="">
+      </button>
+      <button (click)="reproducir('5')" style="background-color: #F6B7DA; width: 33.33vw;">
+        <img src="{{img5}}" alt="">
+      </button>
+      <button (click)="reproducir('6')" style="background-color: #F6BA90; width: 33.33vw;">
+        <img src="{{img6}}" alt="">
+      </button>
+    </ion-row>
+    <ion-row style="height: 33.33vh;">
+      <button (click)="reproducir('7')" style="background-color: #F6B7DA; width: 33.33vw;">
+        <img src="{{img7}}" alt="">
+      </button>
+      <button (click)="reproducir('8')" style="background-color: #F6BA90; width: 33.33vw;">
+        <img src="{{img8}}" alt="">
+      </button>
+      <button (click)="reproducir('9')" style="background-color: #F6B7DA; width: 33.33vw;">
+        <img src="{{img9}}" alt="">
+      </button>
+    </ion-row>
+  </ion-grid>
+
+
+
+  <ion-fab slot="fixed" vertical="top" horizontal="end" color="warning">
+    <ion-fab-button size="small" color="warning" (click)="logout()">
+      <ion-icon name="arrow-undo"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="start">
+    <ion-fab-button color="warning">
+      <img src="{{imagenTema}}" alt="">
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="selectTheme('N')" color="none" style="border: 1px solid black; border-radius: 50%;">
+        <img src="../../assets/Img/5.png">
+      </ion-fab-button>
+      <ion-fab-button (click)="selectTheme('C')" color="none" style="border: 1px solid black; border-radius: 50%;">
+        <img src="../../assets/Img/rojo.png">
+      </ion-fab-button>
+      <ion-fab-button (click)="selectTheme('A')" color="none" style="border: 1px solid black; border-radius: 50%;">
+        <img src="../../assets/Img/mono.png">
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button color="warning">
+      <img src="{{imagenBandera}}" alt="">
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="selectLang('S')" style="border: 1px solid black; border-radius: 50%;">
+        <img src="../../assets/S.png">
+      </ion-fab-button>
+      <ion-fab-button (click)="selectLang('E')" style="border: 1px solid black; border-radius: 50%;">
+        <img src="../../assets/E.png">
+      </ion-fab-button>
+      <ion-fab-button (click)="selectLang('P')" style="border: 1px solid black; border-radius: 50%;">
+        <img src="../../assets/P.png">
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>

@@ -1,0 +1,31 @@
+.list-md {
+    background-color: var(--ion-color-secondary);
+}
+
+.mode {
+    color: var(--ion-color-primary) !important;
+}
+
+.mode:hover{
+    cursor: pointer;
+}
+
+.selected {
+    --background: var(--ion-color-success);
+}
+
+.notselected {
+    --background: var(--ion-color-secondary);
+}
+
+.log {
+    margin-top: 1.5rem;
+}
+
+.reg {
+    color: var(--ion-color-secondary) !important;
+}
+
+ion-card-content {
+    background-color: var(--ion-color-secondary);
+}

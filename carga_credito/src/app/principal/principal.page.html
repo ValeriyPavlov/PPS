@@ -1,0 +1,26 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+
+<ion-content class="ion-text-center ion-align-items-center">
+  <label for="" class="orbitron-font" style="color: #7b0177; font-size: 25px;">Bienvenido</label><br>
+  <label for="" class="orbitron-font" style="color: #7b0177; font-size: 20px; padding-right: 10px;">{{this.userService.user?.correo}}</label>
+
+  <ion-fab slot="fixed" color="warning" vertical="top" horizontal="end" size="small">
+    <ion-fab-button (click)="logout()" color="warning">
+      <img src="../../assets/salir.png" alt="" style="width: 35px;">
+    </ion-fab-button>
+  </ion-fab>
+
+  <h4 class="orbitron-font" style="font-size: 60px; color: rgb(1, 53, 1); margin-top: 30%;">Puntos de crédito:</h4>
+  <label for="" class="orbitron-font" style="font-size: 100px; color: rgb(1, 53, 1);">{{this.puntaje}}</label><br>
+  <ion-button (click)="scan()" class="boton" style="margin-top: 20%;">Escanear <img src="../../assets/camara.png" alt="cam" style="width: 30px; padding-left: 10px;"></ion-button>
+  
+  
+  <ion-fab slot="fixed" color="warning" vertical="bottom" horizontal="end" size="small">
+    <ion-fab-button (click)="limpiar()" color="warning">
+      <img src="../../assets/delete.png" alt="" style="width: 35px;">
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

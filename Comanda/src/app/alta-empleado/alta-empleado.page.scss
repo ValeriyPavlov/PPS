@@ -1,0 +1,40 @@
+.inputs{
+    margin-left: 15px; 
+    margin-top: 10px; 
+    border-radius: 10px;
+    width: 90%;
+}
+
+ion-select-option, ion-item, ion-select, .inputs{
+    --background: rgb(245, 245, 220);
+}
+
+.boton{
+    -webkit-box-shadow: 3px 3px 9px -1px rgba(84,84,84,1);
+    -moz-box-shadow: 3px 3px 9px -1px rgba(84,84,84,1);
+    box-shadow: 3px 3px 9px -1px rgba(84,84,84,1);
+    background-color: rgb(3, 251, 201);
+    margin-top: 10px; 
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.boton:hover{
+    background-color: rgb(4, 187, 150);
+}
+
+ion-select{
+    --placeholder-color: #494949;
+    --justify-content: center;
+    padding-left: 15px;
+    --border-radius: 10px;
+    text-align: center;
+}
+
+ion-select::part(text) {
+    color: #2e36d8;
+    padding-left: 30px;
+}
+

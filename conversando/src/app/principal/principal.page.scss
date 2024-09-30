@@ -1,0 +1,62 @@
+
+
+ion-content{
+    --background: url("../../assets/fondo.png") 0 0/100% fixed no-repeat;
+}
+
+.boton{
+    width: 90%; 
+    height: 45%;
+    border-radius: 30px;
+    border: 3px solid black;
+    margin-top: 3px;
+    background: rgb(231, 146, 245);
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.boton:hover{
+    background: rgb(224, 106, 242);
+    border-color: rgb(64, 1, 59);
+}
+
+.boton3{
+    width: 90%; 
+    height: 45%;
+    border-radius: 30px;
+    border: 3px solid black;
+    margin-top: 3px;
+    background: rgb(34, 156, 250);
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.boton3:hover{
+    background: rgb(2, 142, 248);
+    border-color: rgb(1, 1, 104);
+}
+
+.boton2{
+    background-color: blue; 
+    border-radius: 15px; 
+    width: 100px; 
+    height: 40px; 
+    margin-top: 10px; 
+    border: 2px solid white;
+    color:white;
+    font-weight: bold;
+    font-size: 15px;
+}
+.boton2:hover{
+    background-color: white;
+    color: blue;
+    border: 2px solid blue;
+}
+
+.bree{
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+  }

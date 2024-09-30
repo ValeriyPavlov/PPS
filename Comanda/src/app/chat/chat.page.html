@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-grid [fixed]="true">
+
+      <ion-row class="ion-justify-content-around">
+        <ion-col size="2">
+          <!-- <ion-button size="large" (click)="back()">
+            <ion-icon slot="icon-only" name="arrow-back-circle"></ion-icon>
+          </ion-button> -->
+        </ion-col>
+        <ion-col size="7" offset="1">
+          <ion-icon style="width: 100px;height: 60px;" name="chatbox-ellipses-sharp" size="large"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" color="light" #content>
+  <div #scrollMe [scrollTop]="scrollMe.scrollHeight">
+
+    <ion-card color="light" *ngIf="usuarioLogeado" id="contendedorMensajes" class="cardContainer">
+        <div *ngFor="let mensaje of mensajes; let  i = index"
+          [ngClass]="{'enviado': usuarioLogeado.email === mensaje.email, 'recibido': usuarioLogeado.email !== mensaje.email}"
+          class="msj p-2">
+          <span style="font-size:medium; font-weight: bold;">@if(usuarioLogeado.email != mensaje.email){
+            {{mensaje.emisor}} - {{mensaje.mesa}}
+            }
+            {{convertirAFechaString(mensaje.fecha)}} </span>
+          {{mensaje.texto}}
+        </div>
+    </ion-card>
+    
+  </div>
+</ion-content>
+
+<ion-footer color="secondary">
+  <ion-toolbar color="secondary">
+    <ion-item lines="none" color="secondary">
+      <ion-input color="secondary" [(ngModel)]="nuevoMensaje.texto" placeholder="Ingrese su mensaje"
+        style="font-size:medium; font-weight: bold;"></ion-input>
+      <ion-button (click)="enviarMensaje()">
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

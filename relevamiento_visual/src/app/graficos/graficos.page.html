@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style=" color: black; padding: 10px; background-color: #FFD83B; font-size: 25px;">
+      <button (click)="volver()" class="botonVolver" style="margin-right: 23%;"><img src="../../assets/volver.png" alt="" style="height: 30px;"></button>
+      Estadísticas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="false" class="ion-text-center ion-align-items-center">
+  <ion-card style="width: 95%; height: 50%; background-color: beige;">
+    <div echarts [options]="optionsLindas" [theme]="theme"></div>
+  </ion-card>
+  <ion-card style="width: 95%; height: 45%; background-color: beige;">
+    <div echarts [options]="optionsFeas" [initOpts]="initOptsFeas"></div>
+  </ion-card>
+</ion-content>

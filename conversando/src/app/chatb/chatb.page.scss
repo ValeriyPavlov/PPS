@@ -1,0 +1,44 @@
+.texto{
+    color: black;
+}
+
+ion-content{
+    --background: url("../../assets/salaB.png") 0 0/100% fixed no-repeat;
+}
+
+
+.enviar{
+    margin-left: 2px;
+    border: 2px solid black;
+    background-color: rgb(96, 177, 96); 
+    border-radius: 50%; 
+    height: 50px; 
+    width: 13vw;
+}
+
+.enviar:hover{
+    border-color: white;
+    background-color: rgb(125, 255, 44);
+}
+
+.burbuja{
+    border-radius: 10px;
+    background-color: rgb(218, 249, 242);
+    border-top-left-radius: 0px;
+}
+
+.burbuja_user{
+    border-radius: 10px;
+    background-color: rgb(174, 250, 233);
+    border-top-right-radius: 0px;
+}
+
+.bree{
+    font-family: "Bree Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    color: white;
+}
+
+// COLOR: #1C548C

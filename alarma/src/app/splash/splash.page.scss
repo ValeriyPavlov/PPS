@@ -1,0 +1,40 @@
+ion-content{
+    //background-color: #609CB7;
+    //--background: #E9D892 url("../../assets/fondo.png") 0 0/100% 100% no-repeat;
+    --background: #E9D892;
+    --background: url("../../assets/fondo.png") 0 0/100% 100% no-repeat;
+}
+
+
+
+@-webkit-keyframes scale-up-center{0%{-webkit-transform:scale(.5);transform:scale(.5)}100%{-webkit-transform:scale(1);transform:scale(1)}}@keyframes scale-up-center{0%{-webkit-transform:scale(.5);transform:scale(.5)}100%{-webkit-transform:scale(1);transform:scale(1)}}
+@-webkit-keyframes wobble-hor-top{0%,100%{-webkit-transform:translateX(0);transform:translateX(0);-webkit-transform-origin:50% 50%;transform-origin:50% 50%}15%{-webkit-transform:translateX(-30px) rotate(6deg);transform:translateX(-30px) rotate(6deg)}30%{-webkit-transform:translateX(15px) rotate(-6deg);transform:translateX(15px) rotate(-6deg)}45%{-webkit-transform:translateX(-15px) rotate(3.6deg);transform:translateX(-15px) rotate(3.6deg)}60%{-webkit-transform:translateX(9px) rotate(-2.4deg);transform:translateX(9px) rotate(-2.4deg)}75%{-webkit-transform:translateX(-6px) rotate(1.2deg);transform:translateX(-6px) rotate(1.2deg)}}@keyframes wobble-hor-top{0%,100%{-webkit-transform:translateX(0);transform:translateX(0);-webkit-transform-origin:50% 50%;transform-origin:50% 50%}15%{-webkit-transform:translateX(-30px) rotate(6deg);transform:translateX(-30px) rotate(6deg)}30%{-webkit-transform:translateX(15px) rotate(-6deg);transform:translateX(15px) rotate(-6deg)}45%{-webkit-transform:translateX(-15px) rotate(3.6deg);transform:translateX(-15px) rotate(3.6deg)}60%{-webkit-transform:translateX(9px) rotate(-2.4deg);transform:translateX(9px) rotate(-2.4deg)}75%{-webkit-transform:translateX(-6px) rotate(1.2deg);transform:translateX(-6px) rotate(1.2deg)}}
+
+
+.container{
+    -webkit-animation:wobble-hor-top 1s 1s 3 both;animation:wobble-hor-top 1s 1s 3 both;
+    img{
+        height: 71%;
+        width: 71%;
+        margin-top: 17%;
+    }
+}
+
+.nombre{
+    -webkit-animation:scale-up-center 1s cubic-bezier(.39,.575,.565,1.000) 1s 3 both;animation:scale-up-center 1s cubic-bezier(.39,.575,.565,1.000) 1s 3 both;
+
+    img{
+        height: 80%;
+        width: 65%;
+        margin-top: 15%;
+    }
+}
+
+.division{
+    -webkit-animation:scale-up-center 1s cubic-bezier(.39,.575,.565,1.000) 1s 3 both;animation:scale-up-center 1s cubic-bezier(.39,.575,.565,1.000) 1s 3 both;
+    img{
+        height: 90%;
+        width: 90%;
+        margin-top: 18%;
+    }
+}

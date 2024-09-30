@@ -1,0 +1,44 @@
+
+<ion-content [fullscreen]="false">
+
+  <ion-toolbar class="ion-text-center" color="danger">
+    <h1>Ingreso Anónimo</h1>
+  </ion-toolbar>
+
+  <div class="login">
+
+    <form class="needs-validation" novalidate="" [formGroup]="formulario" (ngSubmit)="loginAnonimo()" style="margin-top: 5%;">
+      <div class="row">
+
+        <img src="../../assets/incognito.png" height="90px" width="90px" alt="">
+
+          <div class="col-md-6 mb-3">
+            <label style="font-size:x-large" for="nombre">Nombre <span style="color: red; font-size:xx-large">*</span> <br> </label>
+            <input type="text" class="form-control" id="nombre" name="Nombre" placeholder="Solo letras" value="" required="" formControlName="nombre">
+            <span *ngIf="checkError('nombre')" class="form-text text-danger">
+                <br>{{getError('nombre')}}
+            </span>    
+            <span *ngIf="!checkError('nombre') " class="form-text text-danger">
+              <br> 
+            </span>                        
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label style="font-size:x-large" for="nombre">Foto de Perfil <span style="color: red; font-size:xx-large">*</span> <br> </label>
+            <input type="text" hidden="true" value="" formControlName="foto" required="">
+            <button [ngClass]="formulario.value['foto']==''? 'boton': 'cargado'" type="button" (click)="takePicture()"><ion-icon style="background-color: none; height:100px; width:100px" name="camera" ></ion-icon></button>
+            <span *ngIf="checkError('foto')" class="form-text text-danger">
+                <br>{{getError('foto')}}
+            </span>
+            <span *ngIf="!checkError('foto')">
+              <br> 
+            </span>    
+          </div>
+        
+      </div>
+      <hr class="mb-4">
+      <ion-button id="iniciar" click [disabled]="formulario.value['foto']=='' || checkError('nombre')" type="submit" style="width: 80%; height:60px; font-size:xx-large" color="primary">Ingresar</ion-button>
+    </form>
+  </div>
+  <ion-loading trigger="iniciar" message="Cargando..." [duration]="3000" spinner="circles"></ion-loading>
+</ion-content>

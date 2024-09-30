@@ -1,0 +1,16 @@
+ion-content{
+    --background: url("../../assets/fondo_main.png") 0 0/100% fixed no-repeat;
+  }
+
+.botonVolver{
+    margin-top: 10px;
+    color: black;
+    background-color: #FFD83B;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.botonVolver:hover{
+    background-color: #d8ae03;
+}
+

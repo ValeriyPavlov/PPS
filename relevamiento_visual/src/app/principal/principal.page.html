@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center" style=" color: black; padding: 15px; background-color: #FFD83B;">
+      Bienvenido {{this.userService.user?.correo}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" class="ion-text-center">
+  <button (click)="navegar('lindas')" class="boton">
+    <img src="../../assets/linda.jpg" alt="" style="width: 90%;">
+    Cosas Lindas</button>
+  <button (click)="navegar('feas')" class="boton2">
+    <img src="../../assets/fea.jpg" alt="" style="width: 90%;">
+    Cosas Feas</button><br>
+
+  <button (click)="volver()" class="botonVolver">Volver</button>
+</ion-content>

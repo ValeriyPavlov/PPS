@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-title>Encuestas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-text-center">
+  <ion-card color="light">
+    <!-- <h1>Lista de Solicitudes Clientes:</h1> -->
+
+    @if (encuestas.length > 0) {
+    <ion-grid>
+      <ion-row class="titles ion-justify-content-around">
+        <ion-col size="5" style="font-weight: bold;">Calificación</ion-col>
+        <ion-col size="5" style="font-weight: bold;">Comentario</ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let item of encuestas; let i = index" [attr.data-index]="i"
+        class="ion-align-items-center ion-justify-content-around data-row" [ngClass]="i%2==0? 'par': 'impar'">
+        <ion-col size="5" class="data-col" style="margin-top: 0.8rem;">
+          @switch (item.clasificacion) {
+          @case (0) {
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          }
+          @case (1) {
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          }
+          @case (2) {
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          }
+          @case (3) {
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          }
+          @case (4) {
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/nostar.png" style="width: 25px;" alt="ns">
+          }
+          @case (5) {
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          <img src="assets/star.png" style="width: 25px;" alt="s">
+          }
+          }
+        </ion-col>
+        <ion-col size="5" class="data-col">
+          {{item.comentario}}
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+    }@else {
+    <br>
+    <br>
+    <br>
+    <h2 class="ion-italic" color="danger">No hay ninguna encuestas previa</h2>
+    <br>
+    <ion-icon name="ban" size="large" color="danger"></ion-icon>
+    }
+  </ion-card>
+</ion-content>

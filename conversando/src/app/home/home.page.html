@@ -1,0 +1,39 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+
+
+<ion-content [fullscreen]="false" class="ion-text-center ion-align-items-center">
+
+  <div style="padding-top: 2%;">
+    <label for="" style="color: purple; font-size: 24px;" class="bree">Acceso rápido:</label>
+  </div>
+
+  <div class="ion-padding" style="padding-top: 3%;">
+
+      <ion-radio-group value="" [allowEmptySelection]="true" (ionChange)="autoLogin($event.detail.value)">
+        <ion-radio value="admin@admin.com" aria-label="Custom checkbox" style="padding-left: 15px; color: purple" class="bree">admin</ion-radio>
+        <ion-radio value="invitado@invitado.com" aria-label="Custom checkbox" style="padding-left: 15px; color: purple" class="bree">invitado</ion-radio>
+        <ion-radio value="usuario@usuario.com" aria-label="Custom checkbox" style="padding-left: 15px; color: purple" class="bree">usuario</ion-radio>
+        <ion-radio value="anonimo@anonimo.com" aria-label="Custom checkbox" style="padding-left: 15px; color: purple" class="bree">anonimo</ion-radio>
+        <ion-radio value="tester@tester.com" aria-label="Custom checkbox" style="padding-left: 15px; color: purple" class="bree">tester</ion-radio>
+      </ion-radio-group>
+
+  </div>
+  <!-- <div>
+    <img src="../../assets/chateando.png" alt="camara" style="width: 50%; padding-top: 3%;">
+  </div> -->
+
+  <div class="ion-padding"  style="background-color: rgb(197, 242, 252); border-radius: 100px; margin-top: 63%; border: 2px solid blue;">
+    <ion-input type="email" name="correo" id="correo" class="input bree" [(ngModel)]="user" errorText="Ingrese un correo válido..." ngModel email>Correo electrónico: </ion-input>
+  </div>
+
+  <div class="ion-padding" style="background-color: rgb(197, 242, 252); border-radius: 100px; margin-top: 5%; border: 2px solid blue;">
+    <ion-input  type="password" name="clave" id="clave" class="input bree" [(ngModel)]="password" [minlength]="3" errorText="Contraseña muy corta...">Contraseña: </ion-input>
+  </div>
+
+  <div class="ion-padding">
+    <ion-button size="large" (click)="login()" class="boton bree">Iniciar Sesión</ion-button>
+  </div>
+  
+</ion-content>

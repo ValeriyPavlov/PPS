@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center" style=" color: black; padding: 15px; background-color: #FFD83B;">
+      Bienvenido a Relevamiento Visual!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false" class="ion-text-center ion-align-items-center">
+
+  <div>
+    <img src="../../assets/camara.png" alt="camara" style="width: 50%; padding-top: 8%;">
+  </div>
+
+  <div class="ion-padding" style="padding-top: 8%;">
+    <ion-input label="Correo electrónico" label-placement="floating" fill="outline" type="email" name="correo" id="correo" class="input" [(ngModel)]="user"></ion-input>
+  </div>
+
+  <div class="ion-padding">
+    <ion-input label="Contraseña" label-placement="floating" fill="outline" type="password" name="clave" id="clave" class="input" [(ngModel)]="password"></ion-input>
+  </div>
+
+  <div class="ion-padding">
+    <ion-button size="large" (click)="login()" class="boton">Iniciar Sesión <img src="../../assets/login.png" alt="" style="width: 30px; height: 30px; margin-left: 10px;"></ion-button>
+  </div>
+
+  <div class="ion-padding" style="padding-top: 7%;">
+
+      <ion-select (ionChange)="autoLogin($event.detail.value)" interface="action-sheet" cancelText="Cancelar" class="selector" label="Acceso rápido:" justify="space-between">
+        <ion-select-option value="admin@admin.com">admin</ion-select-option>
+        <ion-select-option value="invitado@invitado.com">invitado</ion-select-option>
+        <ion-select-option value="usuario@usuario.com">usuario</ion-select-option>
+        <ion-select-option value="anonimo@anonimo.com">anonimo</ion-select-option>
+        <ion-select-option value="tester@tester.com">tester</ion-select-option>
+      </ion-select>
+
+  </div>
+  
+</ion-content>

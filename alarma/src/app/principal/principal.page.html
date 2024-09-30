@@ -1,0 +1,15 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Lobster&family=Orbitron&display=swap" rel="stylesheet">
+
+
+<ion-content [fullscreen]="true" class="ion-text-center ion-align-items-center fondo">
+
+    <div style="height: 55px; background-color: rgb(76, 76, 76); padding-top: 5px; color: white" class="cinzel-regular">Bienvenido {{this.userService.user?.correo}}
+        <button [disabled]="isDetectorActive" (click)="logout()" class="logout" style=" height: 40px; width: 40px; margin-left: 15px;"><img src="../../assets/salir.png" alt="" style="height: 25px; background-color: none;"></button>
+    </div>
+    <button id="myButton" name="myButton" (click)="activar()" class="boton"><img src="{{imagen}}" alt="" style="width: 100%;"></button>
+
+</ion-content>
+
+

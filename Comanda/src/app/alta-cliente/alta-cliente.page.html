@@ -1,0 +1,94 @@
+<ion-content [fullscreen]="false">
+
+  <ion-toolbar class="ion-text-center" color="danger">
+    <h1>Registro de usuarios</h1>
+  </ion-toolbar>
+
+  <div class="login">
+
+    <form class="needs-validation" novalidate="" [formGroup]="formulario" (ngSubmit)="register()" style="margin-top: 5%;">
+      <div class="row">
+          <div class="col-md-6 mb-3">
+              <label for="email">Correo electrónico <span style="color: red; font-size:large">*</span> <br> </label>
+              <input type="email" class="form-control" id="email" name="Email" placeholder="usuario@mail.com" value="" required="" formControlName="email">
+              <span *ngIf="checkError('email')" class="form-text text-danger">
+                  <br>{{getError('email')}}
+              </span>  
+              <span *ngIf="!checkError('email')">
+                  <br> 
+              </span>                      
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="password">Contraseña <span style="color: red; font-size:large">*</span> <br> </label>
+            <input type="password" class="form-control" id="password" name="Password" placeholder="Ingrese su contraseña..." value="" required="" formControlName="password">
+            <span *ngIf="checkError('password')" class="form-text text-danger">
+                <br>{{getError('password')}}
+            </span>   
+            <span *ngIf="!checkError('password')">
+              <br> 
+            </span>                         
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="passwordConfirmation">Repetir Contraseña <span style="color: red; font-size:large">*</span> <br> </label>
+            <input type="password" class="form-control" id="passwordConfirmation" name="passwordConfirmation" placeholder="Reingrese su contraseña..." value="" required="" formControlName="passwordConfirmation">
+            <span *ngIf="checkError('passwordConfirmation')" class="form-text text-danger">
+                <br>{{getError('passwordConfirmation')}}
+            </span>   
+            <span *ngIf="!checkError('passwordConfirmation')">
+              <br> 
+            </span>                         
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="nombre">Nombre <span style="color: red; font-size:large">*</span> <br> </label>
+            <input type="text" class="form-control" id="nombre" name="Nombre" placeholder="Solo letras" value="" required="" formControlName="nombre">
+            <span *ngIf="checkError('nombre')" class="form-text text-danger">
+                <br>{{getError('nombre')}}
+            </span>    
+            <span *ngIf="!checkError('nombre')">
+              <br> 
+            </span>                        
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="apellido">Apellido <span style="color: red; font-size:large">*</span> <br></label>
+            <input type="text" class="form-control" id="apellido" name="Apellido" placeholder="Solo letras" value="" required="" formControlName="apellido">
+            <span *ngIf="checkError('apellido')" class="form-text text-danger">
+              <br>{{getError('apellido')}}
+            </span>   
+            <span *ngIf="!checkError('apellido')">
+              <br> 
+            </span>                         
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="dni">DNI <span style="color: red; font-size:large">*</span> <br></label>
+            <input type="number" class="form-control" id="dni" name="Dni" placeholder="Ingrese DNI válido" value="" formControlName="dni" required="">
+            <span *ngIf="checkError('dni')" class="form-text text-danger">
+                <br>{{getError('dni')}}
+            </span>  
+            <span *ngIf="!checkError('dni')">
+              <br> 
+            </span>                          
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <input type="text" hidden="true" value="" formControlName="foto" required="">
+            <button [ngClass]="formulario.value['foto']==''? 'boton': 'cargado'" type="button" (click)="takePicture()"><ion-icon size="large" style="background-color: none;" name="camera" ></ion-icon></button>
+            <button class="qr" type="button" (click)="scanQr()"><ion-icon size="large" style="background-color: none;" name="qr-code" ></ion-icon></button>
+            <span *ngIf="checkError('foto')" class="form-text text-danger">
+                <br>{{getError('foto')}}
+            </span>
+            <span *ngIf="!checkError('foto')">
+              <br> 
+            </span>    
+          </div>
+          
+      </div>
+      <!-- <hr class="mb-4"> -->
+      <ion-button type="submit" color="success">Registrarse</ion-button>
+    </form>
+  </div>
+</ion-content>

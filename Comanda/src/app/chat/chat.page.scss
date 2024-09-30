@@ -1,0 +1,96 @@
+.cardContainer {
+    width: 100%;
+    height: 100%;
+    /* Ajusta la altura para dejar espacio para el footer */
+    //display: flex;
+    //flex-direction: column;
+
+    margin-left: 0px;
+    overflow-y: auto;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.card-header {
+    font-weight: 700;
+}
+
+.contendedorMensajes {
+    overflow-y: auto;
+    /* Cambiado a 'auto' para permitir el desplazamiento vertical cuando sea necesario */
+    padding: 0.3rem;
+    flex-grow: 1;
+    max-height: calc(100% - 20px);
+    /* Altura máxima del contenedor de mensajes, ajustada para dejar espacio para el encabezado y el pie de página */
+}
+
+.contendedorMensajes::-webkit-scrollbar {
+    display: none;
+}
+
+.msj {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 10px;
+    min-width: 10rem;
+}
+
+.enviado {
+    background-color: var(--ion-color-primary);
+    color: rgb(3, 16, 165);
+    align-self: flex-end;
+    text-align: left;
+    max-width: 10rem;
+    margin-left: 11.0rem;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.recibido {
+    background-color: rgb(199, 197, 123);
+    color: rgb(3, 16, 165);
+    align-self: flex-start;
+    text-align: left;
+    max-width: 10rem;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.msj>span {
+    font-size: x-small;
+    margin-top: 0.3rem;
+}
+
+/* Estilos adicionales para el input del mensaje */
+.input-mensaje {
+    --background: black;
+    --color: white;
+    color: white !important;
+}
+
+ion-input::part(native) {
+    color: white !important;
+}
+
+ion-card,
+.card-ios,
+.card-md {
+    border: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-style: none !important;
+    position: relative;
+    text-align: center;
+    // border-top: 3px solid colorofyourchosing
+}
+
+.card {
+    border: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-style: none !important;
+}

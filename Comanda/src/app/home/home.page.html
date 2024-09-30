@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-row class="ion-justify-content-between">
+      <ion-col size="6">
+        <br>
+        Inicio
+      </ion-col>
+      <ion-col size="2" style="margin-top: 0.5rem;">
+        <ion-button (click)="logOut()" id="cerrar">
+          <ion-icon name="power"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-loading trigger="cerrar" message="Cerrando..." [duration]="3000" spinner="circles"></ion-loading>
+
+  <ion-button (click)="test()">
+    <ion-icon name="person"></ion-icon>
+  </ion-button>
+</ion-content>

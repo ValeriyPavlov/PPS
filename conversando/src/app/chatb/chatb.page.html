@@ -1,0 +1,53 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+
+
+<ion-header [translucent]="false" class="ion-text-center" style="background-color: purple; height: 50px;">
+  <ion-grid>
+    <ion-row size="auto">
+      <ion-col size="2"><button (click)="volver()" class="bree" style="background-color: #1C548C; width: 50px ; height: 25px; border-radius: 10px; color:white;">Volver</button></ion-col>
+      <ion-col class="bree" size="8">Bienvenido a PPS-4B {{this.userService.user?.correo}}.</ion-col>
+      <ion-col size="2"><button (click)="logout()" style="background-color: purple;"><img src="../../assets/salir.png" alt="" style="width: 30px; background-color: purple;"></button></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" class="ion-text-start" style="height: 84vh;" #content>
+    <ion-grid style="margin-bottom: 0px; margin-top: 0px;">
+      <div *ngFor="let fecha of this.userService.fechas" style="margin-bottom: 0px; margin-top: 0px;">
+        <ion-card style="color: rgb(207, 205, 205); margin-left: 41%; margin-right: 41%; background: purple; padding-left: 3px; margin-bottom: 0px; margin-top: 0px;" class="bree">{{fecha}}</ion-card>
+        <ion-row *ngFor="let mensaje of this.getMensajesPorFecha(fecha)" class="ion-justify-content-between" style="margin-bottom: 0px; margin-top: 0px; padding-top: 0px; padding-bottom: 0px;">
+          <ion-col size="auto" style="margin-bottom: 0px; margin-top: 0px;"> 
+            <ion-card *ngIf="fecha == crearFecha(mensaje.fecha) && mensaje.usuario != this.userService.user?.correo" class="texto bree burbuja" style="margin-bottom: 0px; margin-top: 0px;">
+              <ion-card-subtitle style="font-size: 12px; padding-left: 3px; padding-right: 3px;">{{mensaje.usuario}}:</ion-card-subtitle>
+              <ion-card-title style="color: black; padding-left: 3px; padding-right: 3px; padding-bottom: 0px; margin-bottom: 0px;">{{mensaje.mensaje}}</ion-card-title>
+              <ion-card-content style="font-size: 10px; color: gray; padding-top: 0px; padding-bottom: 0px; padding-right: 3px;" class="ion-text-end">
+                {{this.crearHorario(mensaje.fecha)}}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="auto" style="margin-bottom: 0px; margin-top: 0px; ">
+            <ion-card *ngIf="fecha == crearFecha(mensaje.fecha) && mensaje.usuario == this.userService.user?.correo" class="texto bree burbuja_user" style="margin-bottom: 0px; margin-top: 0px;">
+              <ion-card-title style="color: black; padding-left: 3px; padding-right: 3px; padding-bottom: 0px; margin-bottom: 0px;">{{mensaje.mensaje}}</ion-card-title>
+              <ion-card-content style="font-size: 10px; color: gray; padding-top: 0px; padding-bottom: 0px; padding-right: 3px;" class="ion-text-end">
+                {{this.crearHorario(mensaje.fecha)}}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-grid>
+</ion-content>
+
+<ion-footer [translucent]="false" style="background-color: purple;">
+  <ion-grid>
+    <ion-row style="padding-left: 3px;">
+      <ion-input (click)="scrollToBottomOnInit()" placeholder=" Mensaje" [(ngModel)]="mensaje" style="background-color: beige; color: black; width: 83vw; border-radius: 5px;" class="bree"></ion-input>
+      <button (click)="enviar()" class="bree enviar">
+        <img src="../../assets/send.png" alt="" style="width: 30px;">
+      </button>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

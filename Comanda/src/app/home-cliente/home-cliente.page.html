@@ -1,0 +1,52 @@
+<ion-content [fullscreen]="true" class="ion-text-center">
+  <ion-toolbar color="danger" style="padding-bottom: 5px;">
+    <ion-title *ngIf="user.usuarioActual?.cargo == 'registrado'"
+      style="padding-right: 40px; font-weight: bold; font-size: 15px;">Bienvenido
+      {{user.usuarioActual?.email}}</ion-title>
+    <ion-title *ngIf="user.usuarioActual?.cargo == 'anonimo'"
+      style="padding-right: 40px; font-weight: bold; font-size: 16px;">Bienvenido
+      {{user.usuarioActual?.nombre}}</ion-title>
+  </ion-toolbar>
+  <ion-fab vertical="top" horizontal="end" [edge]="true" style="margin-top: 30px;">
+    <ion-fab-button (click)="logOut()" color="warning">
+      <ion-icon name="power" size="large"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <div class="card">
+    <div class="head">
+      <div class="circle"></div>
+      <div class="img">
+        <img src="{{user.usuarioActual?.foto}}">
+      </div>
+    </div>
+
+    <div *ngIf="user.usuarioActual?.cargo == 'registrado'" class="description">
+      <h1>Bienvenido Cliente: <br> {{user.usuarioActual?.nombre}} {{user.usuarioActual?.apellido}} </h1>
+    </div>
+    <div *ngIf="user.usuarioActual?.cargo == 'anonimo'" class="description">
+      <h1>Bienvenido Anónimo: <br> {{user.usuarioActual?.nombre}}</h1>
+    </div>
+  </div>
+
+  <div class="card2" style="text-align: center;">
+    <!-- <img *ngIf="user.usuarioActual?.cargo == 'anonimo'" style="margin-top: 2%;margin-bottom:2%;" src="../../assets/incognito.png" height="64px" width="64px" alt="">
+    <img *ngIf="user.usuarioActual?.cargo == 'registrado'" style="margin-top: 2%;margin-bottom:2%; border-radius:50%" src="../../assets/icono.png" height="64px" width="64px" alt=""> -->
+    <h1>{{this.mensajeActual}}</h1>
+
+    <button id="mode" class="qr" type="button" (click)="scanQr()">
+      <ion-icon style="background-color: none;" name="qr-code"></ion-icon>
+    </button>
+    <button *ngIf="mostrarBotonChat" id="mode" class="qr" type="button" (click)="chat()">
+      <ion-icon style="background-color: none;" name="chatbox-ellipses-sharp"></ion-icon>
+    </button>
+    <button *ngIf="mostrarBotonEncuesta" id="mode" class="qr" type="button" (click)="viewEncuestas()">
+      <ion-icon style="background-color: none;" name="document-text-outline"></ion-icon>
+    </button>
+
+  </div>
+
+  <ion-loading trigger="mode" message="Cargando..." [duration]="2000" spinner="circles"></ion-loading>
+
+</ion-content>

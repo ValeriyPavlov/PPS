@@ -1,0 +1,153 @@
+<ion-content [fullscreen]="true" class="ion-text-center">
+
+  <ion-toolbar color="danger" style="padding-bottom: 5px;">
+    <ion-title
+      style="padding-right: 40px; font-weight: bold; font-size: 17px;">{{userService.usuarioActual?.email}}</ion-title>
+  </ion-toolbar>
+  <ion-fab vertical="top" horizontal="end" [edge]="true" style="margin-top: 30px;">
+    <ion-fab-button (click)="logOut()" color="warning">
+      <ion-icon name="power" size="large"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab *ngIf="pantalla != 'menu'" vertical="top" horizontal="start" [edge]="true" style="margin-top: 30px;">
+    <ion-fab-button (click)="cambiarPantalla('menu')" color="primary">
+      <ion-icon name="arrow-back" size="large"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- <ion-card>
+    <h1>Bienvenido: </h1>
+
+  </ion-card> -->
+
+  <ion-card *ngIf="userService.usuarioActual">
+    <div *ngIf="pantalla == 'menu'">
+      <h1>Bienvenido {{userService.usuarioActual.nombre}} {{userService.usuarioActual.apellido}}.</h1>
+
+      <button (click)="cambiarPantalla('pendientes')" id="mode" class="boton azul" type="button">CONFIRMAR
+        PEDIDOS</button>
+
+      <button (click)="cambiarPantalla('activos')" id="mode" class="boton verde" type="button">PEDIDOS ACTIVOS</button>
+
+      <button (click)="chat()" id="mode" type="button" class="boton violeta">CHAT</button>
+
+    </div>
+
+    <ion-grid *ngIf="pantalla != 'menu'">
+      <h1 *ngIf="pantalla == 'pendientes'">Lista de Pedidos Pendientes:</h1>
+      <h1 *ngIf="pantalla == 'activos'">Lista de Pedidos Activos:</h1>
+
+      <ion-row *ngIf="pantalla == 'pendientes' && verificarPendientes()" class="titles">
+        <!-- <ion-col size="2" style="font-weight: bold;">Foto</ion-col> -->
+        <ion-col size="4" style="font-weight: bold;">Mesa</ion-col>
+        <ion-col size="8" style="font-weight: bold;">Cliente</ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="pantalla == 'activos' && verificarActivos()" class="titles">
+        <!-- <ion-col size="2" style="font-weight: bold;">Foto</ion-col> -->
+        <ion-col size="3" style="font-weight: bold;">Mesa</ion-col>
+        <ion-col size="5" style="font-weight: bold;">Cliente</ion-col>
+        <ion-col size="4" style="font-weight: bold;">Estado</ion-col>
+      </ion-row>
+
+      <!-- <ng-container *ngFor="let orden of ordenes; let i = index" [attr.data-index]="i"> -->
+      <ng-container *ngFor="let orden of ordenes; let i = index">
+
+        <ion-row *ngIf="pantalla == 'pendientes' && orden.state == 'pendiente'" class="ion-align-items-center data-row"
+          [ngClass]="i%2==0? 'par': 'impar'">
+          <ion-col size="4" class="data-col">
+            #{{orden.tableId}}
+          </ion-col>
+          <ion-col size="8" class="data-col">
+            {{usuarios[i]}}
+          </ion-col>
+          <ion-col size="12">
+            <ion-button (click)="mostrarDetalles(orden,usuarios[i])" color="warning" expand="full">
+              DETALLES
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button (click)="cambiarEstadoPedido(orden,'aceptado')" color="success" expand="full" id="mode">
+              <ion-icon name="checkmark-circle-outline" size="large"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button (click)="cambiarEstadoPedido(orden,'rechazado')" color="danger" expand="full" id="mode">
+              <ion-icon name="close-circle-outline" size="large"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row
+          *ngIf='pantalla == "activos" && (orden.state == "aceptado" || orden.state == "listo" || orden.state == "entregado" || orden.state == "pagando" || orden.state == "pago")'
+          class="ion-align-items-center data-row" [ngClass]="i%2==0? 'par': 'impar'">
+          <ion-col size="2" class="data-col">
+            #{{orden.tableId}}
+          </ion-col>
+          <ion-col size="6" class="data-col">
+            {{usuarios[i]}}
+          </ion-col>
+          <ion-col size="4" class="data-col">
+            {{orden.state}}
+          </ion-col>
+          <ion-col size="12">
+            <p *ngIf="orden.state == 'aceptado'">Debe esperar que el pedido este listo para poder entregarlo.</p>
+            <p *ngIf="orden.state == 'listo'">Pedido Listo.</p>
+            <p *ngIf="orden.state == 'entregado'">El pedido fue entregado al cliente.</p>
+            <p *ngIf="orden.state == 'pagando'">El cliente pidio la cuenta.</p>
+            <p *ngIf="orden.state == 'pago'">El cliente pago. Confirme la recepción del pago.</p>
+
+            <ion-button (click)="mostrarDetalles(orden,usuarios[i])" color="warning" expand="full">
+              DETALLES
+            </ion-button>
+            <ion-button *ngIf="orden.state == 'listo'" (click)="cambiarEstadoPedido(orden,'entregado')" color="success"
+              expand="full">
+              ENTREGAR PEDIDO
+            </ion-button>
+            <ion-button *ngIf="orden.state == 'pago'" (click)="cambiarEstadoPedido(orden,'libre')" color="primary"
+              expand="full">
+              CONFIRMAR PAGO
+            </ion-button>
+          </ion-col>
+          <!-- <ion-col size="6">
+              <ion-button (click)="cambiarEstadoPedido(orden,'aceptado')" color="success" expand="full" id="mode">
+                <ion-icon name="checkmark-circle-outline" size="large"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button (click)="cambiarEstadoPedido(orden,'rechazado')" color="danger" expand="full" id="mode">
+                <ion-icon name="close-circle-outline" size="large"></ion-icon>
+              </ion-button>
+            </ion-col> -->
+        </ion-row>
+
+      </ng-container>
+
+      <ng-container
+        *ngIf="(pantalla == 'pendientes' && !verificarPendientes()) || (pantalla == 'activos' && !verificarActivos())">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2 class="ion-italic" color="danger">No hay pedidos {{pantalla}}</h2>
+        <br>
+        <ion-icon name="ban" size="large" color="danger"></ion-icon>
+      </ng-container>
+
+    </ion-grid>
+
+    <!-- @if (ordenes.length > 0) {
+  
+    }@else {
+    <br>
+    <br>
+    <br>
+    <h2 class="ion-italic" color="danger">No hay pedidos pendientes</h2>
+    <br>
+    <ion-icon name="ban" size="large" color="danger"></ion-icon>
+    } -->
+  </ion-card>
+  <ion-loading trigger="mode" message="Cargando..." [duration]="3000" spinner="circles"></ion-loading>
+</ion-content>

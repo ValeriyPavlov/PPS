@@ -1,0 +1,12 @@
+ion-content{
+    --background: url("../../assets/fondo_main.png") 0 0/100% fixed no-repeat;
+}
+
+ion-fab-button {
+    --background: #93e9be;
+    --background-activated: #65d52e;
+    --background-hover: #7fe54d;
+    --border-radius: 15px;
+    --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+    --color: black;
+  }

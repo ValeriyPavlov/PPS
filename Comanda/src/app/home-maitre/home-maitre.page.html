@@ -1,0 +1,43 @@
+
+<ion-content [fullscreen]="true" class="ion-text-center">
+
+  <ion-toolbar color="danger" style="padding-bottom: 5px;">
+    <ion-title style="padding-right: 40px; font-weight: bold; font-size: 17px;">Bienvenido {{userData}}</ion-title>
+  </ion-toolbar>
+  <ion-fab vertical="top" horizontal="end" [edge]="true" style="margin-top: 30px;">
+    <ion-fab-button (click)="logOut()" color="warning">
+      <ion-icon name="power" size="large"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card>
+    <h1>Lista de espera:</h1>
+
+    <ion-grid *ngIf="userClients.length > 0">
+      <ion-row class="titles">
+        <ion-col size="8" style="font-weight: bold;">Usuario</ion-col>
+        <ion-col size="4" style="font-weight: bold;">Mesa</ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let item of userClients; let i = index" [attr.data-index]="i" class="ion-align-items-center data-row" [ngClass]="i%2==0? 'par': 'impar'">
+        <ion-col size="8" class="data-col">
+          <img src="{{item.foto}}" alt="" style="height: 50px; margin-top: 10px;">
+          <br>
+          {{item.nombre}} 
+        </ion-col>
+        <ion-col size="4" class="data-col" id="asignada">
+          <ion-select name="mesas" id="mesas_{{i}}" class="select_mesa" [(ngModel)]="selectedOption[i]" interface="action-sheet" placeholder="#" [interfaceOptions]="customActionSheetOptions" cancelText="Cancelar">
+            <ion-select-option *ngFor="let item of tables" value="{{item.id}}">{{item.id}}</ion-select-option>
+          </ion-select>
+          <button class="boton" (click)="assignTable(selectedOption[i], item.id)">
+            <ion-icon name="checkmark-circle-outline" size="large"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <h1 *ngIf="userClients.length == 0" style="color: red; margin-top: 45%; font-style: italic; font-size: 50px;">Actualmente no hay clientes en la lista de espera.</h1>
+
+  </ion-card>
+  <ion-toast [isOpen]="showToast" message="Debe seleccionar una mesa!" (didDismiss)="setOpen(false)" [duration]="3000" icon="warning-outline"></ion-toast>  
+</ion-content>

@@ -1,0 +1,61 @@
+<ion-content [fullscreen]="true">
+  <div class="ion-text-center">
+
+
+    <ion-fab slot="fixed" vertical="top" horizontal="start">
+      <ion-fab-button (click)="volver()" color="warning">
+        <ion-icon size="large" name="backspace"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <h1>Alta Empleado</h1>
+
+    <ion-card style="background-color: rgba(245, 245, 220, 0.707); border-radius: 30px; margin-top: 20px;">
+
+      <ion-input type="email" label="Correo electrónico:" class="inputs"></ion-input>
+      <ion-label color="danger">Reservado validación</ion-label>
+
+      <ion-input type="password" label="Contraseña:" class="inputs"></ion-input>
+      <ion-label color="danger">Reservado validación</ion-label>
+
+      <ion-input label="Apellido:" class="inputs"></ion-input>
+      <ion-label color="danger">Reservado validación</ion-label>
+
+      <ion-input label="Nombre:" class="inputs"></ion-input>
+      <ion-label color="danger">Reservado validación</ion-label>
+
+      <ion-input label="DNI:" class="inputs"></ion-input>
+      <ion-label color="danger">Reservado validación</ion-label>
+
+      <ion-input label="CUIL:" class="inputs"></ion-input>
+      <ion-label color="danger">Reservado validación</ion-label>
+
+
+      <ion-grid style="margin-top: 20px;">
+        <ion-row>
+          <ion-col>
+            <ion-label>Foto de perfil:</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>Tipo de empleado:</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="tomarFoto()"><ion-icon size="large" name="camera"></ion-icon></ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-select aria-label="Tipo" interface="action-sheet" placeholder="Seleccione tipo..." value="">
+              <ion-select-option value="Maitre">Maître</ion-select-option>
+              <ion-select-option value="Mozo">Mozo</ion-select-option>
+              <ion-select-option value="Cocinero">Cocinero</ion-select-option>
+              <ion-select-option value="Bartender">Bartender</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <button class="boton" (click)="crearEmpleado()">Dar de Alta</button>
+    </ion-card>
+  </div>
+</ion-content>

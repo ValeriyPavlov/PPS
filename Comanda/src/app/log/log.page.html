@@ -1,0 +1,125 @@
+<ion-content [fullscreen]="true" class="text-center">
+  <form [formGroup]="form" class="login" (ngSubmit)="onSubmit()">
+    <ion-card color="light" class="ion-text-center">
+      <!-- <ion-card-header class="ion-text-center" color="secondary">
+        <h2 style="font-size:x-large; font-weight: bold;">
+          @if(register){
+          Registro
+          }@else{
+          Ingreso
+          }
+        </h2>
+      </ion-card-header> -->
+      <ion-card-content color="secondary">
+        <ion-list>
+          <h2 style="font-size:large; font-weight: bold;">Correo electrónico</h2>
+          <ion-item color="primary">
+            <ion-input type="email" placeholder="Ingrese su correo electrónico" formControlName="email"
+              style="font-size:large; font-weight: bold;" errorText="Correo electrónico no valido" ngModel
+              email></ion-input>
+          </ion-item>
+          <br>
+          <h2 style="font-size:large; font-weight: bold;">Contraseña</h2>
+          <ion-item color="primary">
+            <ion-input type="password" placeholder="Ingrese su contraseña" formControlName="password"
+              style="font-size:large; font-weight: bold;" [minlength]="6"
+              errorText="Contraseña muy corta..."></ion-input>
+          </ion-item>
+          @if(register){
+          <br>
+          <h2 style="font-size:x-large; font-weight: bold;">Repetir contraseña</h2>
+          <ion-item color="primary">
+            <ion-input type="password" placeholder="Reingrese la contraseña" formControlName="password2"
+              style="font-size:x-large; font-weight: bold;" [minlength]="6"
+              errorText="Contraseña muy corta..."></ion-input>
+          </ion-item>
+
+          }
+        </ion-list>
+
+      </ion-card-content>
+
+      <ion-card-subtitle>
+        @if(!register){
+
+        Aún no tienes cuenta?<a id="mode" (click)="changeMode()" class="mode"
+          style="font-size:large; font-weight: bold;"> Registrarse</a>
+        }
+      </ion-card-subtitle>
+
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="6">
+            <ion-button type="submit" color="primary" size="large" expand="full" shape="round">
+              <div>
+                <img src="assets/icono_sin_fondo.png" alt="logo">
+              </div>
+            </ion-button>
+          </ion-col>
+          <ion-col size="12">
+            <ion-button (click)="ingresoAnonimo()" color="primary" size="large" expand="full">
+              Ingrese como anónimo
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-card-header class="ion-text-center log" color="primary">
+        @if(register){
+        Ya tienes cuenta?<a id="mode" (click)="changeMode()" class="reg" style="font-size:large; font-weight: bold;">
+          Ingresar</a>
+        }@else{
+        <ion-grid>
+
+          <ion-row class="ion-justify-content-between ion-align-items-center">
+            <ion-col size="4">
+              <ion-button (click)="logOwner()" [ngClass]="selected === 1 ? 'selected' : 'notselected'" size="large"
+                shape="round">
+                <ion-icon name="briefcase" color="dark"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button (click)="logMaitre()" [ngClass]="selected === 2 ? 'selected' : 'notselected'" size="large"
+                shape="round">
+                <ion-icon name="shield" color="dark"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button (click)="logBartender()" [ngClass]="selected === 3 ? 'selected' : 'notselected'" size="large"
+                shape="round">
+                <ion-icon name="beer" color="dark"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button (click)="logCocinero()" [ngClass]="selected === 4 ? 'selected' : 'notselected'" size="large"
+                shape="round">
+                <ion-icon name="pizza" color="dark"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button (click)="logMozo()" [ngClass]="selected === 5 ? 'selected' : 'notselected'" size="large"
+                shape="round">
+                <ion-icon name="clipboard" color="dark"></ion-icon>
+              </ion-button>
+            </ion-col>
+            <ion-col size="4">
+              <ion-button (click)="logCliente()" [ngClass]="selected === 6 ? 'selected' : 'notselected'" size="large"
+                shape="round">
+                <ion-icon name="person" color="dark"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- <h2 style="font-size:large; font-weight: bold;">
+          Acceso Rápido
+        </h2> -->
+        }
+      </ion-card-header>
+    </ion-card>
+
+    <ion-loading trigger="mode" message="Cargando..." [duration]="3000" spinner="circles"></ion-loading>
+
+  </form>
+
+</ion-content>
